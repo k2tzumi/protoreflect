@@ -254,7 +254,7 @@ func (p Parser) ParseFilesButDoNotLink(filenames ...string) ([]*descriptorpb.Fil
 	protos := make([]*descriptorpb.FileDescriptorProto, len(results))
 	for i, res := range results {
 		protos[i] = res.FileDescriptorProto()
-		var optsIndex options.Index
+		var optsIndex sourceinfo.OptionIndex
 		if p.InterpretOptionsInUnlinkedFiles {
 			var err error
 			optsIndex, err = options.InterpretUnlinkedOptions(res)
